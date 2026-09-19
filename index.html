@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RPS ROBOT BATTLE</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+
+<body>
+
+    <div class="graffiti graffiti-1">RPS</div>
+    <div class="graffiti graffiti-2">BATTLE</div>
+    <div class="graffiti graffiti-3">FIGHT!</div>
+
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="top-label">
+                ⚡ ROBOT ARENA // SECTOR 07
+            </div>
+
+            <h1>
+                RPS
+                <span>ROBOT</span>
+                BATTLE
+            </h1>
+
+            <p>
+                ROCK • PAPER • SCISSORS
+            </p>
+
+        </header>
+
+
+        <!-- MODEL -->
+        <section class="control-panel">
+
+            <div class="panel-title">
+                🤖 NEURAL MODEL CONNECTION
+            </div>
+
+            <div class="model-input">
+
+                <input
+                    id="modelURL"
+                    type="text"
+                    placeholder="Paste Teachable Machine Model URL..."
+                >
+
+                <button id="loadModelBtn">
+                    CONNECT
+                </button>
+
+            </div>
+
+            <div id="modelStatus" class="status">
+                ● SYSTEM OFFLINE
+            </div>
+
+        </section>
+
+
+        <!-- BATTLE -->
+        <section class="battle-arena">
+
+            <!-- PLAYER -->
+            <div class="fighter player">
+
+                <div class="fighter-header">
+                    <span class="robot-icon">🤖</span>
+                    PLAYER UNIT
+                </div>
+
+                <div class="camera-box">
+
+                    <div id="webcam-container"></div>
+
+                    <div class="camera-label">
+                        ● LIVE CAMERA
+                    </div>
+
+                </div>
+
+                <div class="move-box">
+
+                    <small>PLAYER MOVE</small>
+
+                    <div id="playerChoice">
+                        ?
+                    </div>
+
+                    <strong id="playerPrediction">
+                        WAITING...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CENTER -->
+            <div class="center">
+
+                <div class="vs">
+                    VS
+                </div>
+
+                <div class="round">
+                    ROUND
+                </div>
+
+                <button
+                    id="startBtn"
+                    disabled
+                >
+                    START
+                </button>
+
+            </div>
+
+
+            <!-- BOT -->
+            <div class="fighter bot">
+
+                <div class="fighter-header">
+                    <span class="robot-icon">⚙️</span>
+                    ENEMY UNIT
+                </div>
+
+                <div class="bot-screen">
+
+                    <div id="botChoice">
+                        ?
+                    </div>
+
+                    <span>
+                        AI PROCESSING
+                    </span>
+
+                </div>
+
+                <div class="move-box">
+
+                    <small>BATTLE RESULT</small>
+
+                    <div id="result">
+                        READY
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCORE -->
+        <section class="score">
+
+            <div class="score-unit">
+
+                <span>PLAYER</span>
+
+                <strong id="playerScore">
+                    0
+                </strong>
+
+            </div>
+
+            <div class="score-center">
+                SCORE
+            </div>
+
+            <div class="score-unit">
+
+                <span>ROBOT</span>
+
+                <strong id="botScore">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <div
+            id="gameMessage"
+            class="game-message"
+        >
+            CONNECT YOUR NEURAL MODEL
+        </div>
+
+
+        <button
+            id="resetBtn"
+            class="reset"
+        >
+            ↻ RESET SYSTEM
+        </button>
+
+
+        <footer>
+            RPS ROBOT BATTLE // TENSORFLOW.JS // GRAFFITI PROTOCOL
+        </footer>
+
+    </main>
+
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

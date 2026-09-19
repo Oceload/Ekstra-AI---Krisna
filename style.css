@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@400;600;700;900&family=Permanent+Marker&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #252525 0%,
+            #0d0d0d 45%,
+            #050505 100%
+        );
+
+    color: #ffffff;
+
+    font-family: 'Orbitron', monospace;
+
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   BACKGROUND
+================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            transparent 95%,
+            #ffffff 95%
+        ),
+        linear-gradient(
+            transparent 95%,
+            #ffffff 95%
+        );
+
+    background-size: 35px 35px;
+
+    z-index: -2;
+}
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 50px,
+            rgba(255, 255, 255, 0.025) 50px,
+            rgba(255, 255, 255, 0.025) 52px
+        );
+
+    z-index: -1;
+}
+
+
+/* =================================
+   GRAFFITI
+================================= */
+
+.graffiti {
+    position: fixed;
+
+    font-family: 'Permanent Marker';
+
+    font-weight: bold;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    opacity: 0.18;
+}
+
+
+.graffiti-1 {
+    top: 8%;
+    left: -20px;
+
+    font-size: 150px;
+
+    color: #ffea00;
+
+    transform: rotate(-15deg);
+}
+
+
+.graffiti-2 {
+    bottom: 5%;
+    right: -50px;
+
+    font-size: 130px;
+
+    color: #00e5ff;
+
+    transform: rotate(-10deg);
+}
+
+
+.graffiti-3 {
+    top: 45%;
+    right: 5%;
+
+    font-size: 70px;
+
+    color: #ff3b30;
+
+    transform: rotate(15deg);
+}
+
+
+/* =================================
+   CONTAINER
+================================= */
+
+.container {
+    width: min(1200px, 94%);
+
+    margin: auto;
+
+    padding: 30px 0;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.top-label {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    background: #ffea00;
+
+    color: #050505;
+
+    font-weight: 900;
+
+    font-size: 12px;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        5px 5px 0 #ff3b30;
+}
+
+
+h1 {
+    margin-top: 18px;
+
+    font-family: 'Bangers';
+
+    font-size: clamp(60px, 10vw, 115px);
+
+    line-height: 0.8;
+
+    letter-spacing: 4px;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+        5px 5px 0 #ff3b30,
+        10px 10px 0 #000;
+}
+
+
+h1 span {
+    color: #00e5ff;
+}
+
+
+.header p {
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    color: #999;
+}
+
+
+/* =================================
+   CONTROL PANEL
+================================= */
+
+.control-panel {
+    max-width: 900px;
+
+    margin: 0 auto 35px;
+
+    padding: 20px;
+
+    background: #101010;
+
+    border: 2px solid #444;
+
+    box-shadow:
+        8px 8px 0 #00e5ff,
+        -8px -8px 0 #ff3b30;
+}
+
+
+.panel-title {
+    margin-bottom: 12px;
+
+    color: #ffea00;
+
+    font-weight: 900;
+
+    font-size: 13px;
+}
+
+
+.model-input {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.model-input input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px;
+
+    background: #050505;
+
+    color: white;
+
+    border: 2px solid #444;
+
+    outline: none;
+
+    font-family: 'Orbitron';
+}
+
+
+.model-input input:focus {
+    border-color: #00e5ff;
+}
+
+
+button {
+    border: none;
+
+    padding: 12px 22px;
+
+    background: #ff3b30;
+
+    color: white;
+
+    font-family: 'Bangers';
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0 #000;
+
+    transition: 0.15s;
+}
+
+
+button:hover {
+    transform: translate(-2px, -2px);
+
+    box-shadow: 8px 8px 0 #000;
+}
+
+
+button:active {
+    transform: translate(3px, 3px);
+
+    box-shadow: 2px 2px 0 #000;
+}
+
+
+button:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+
+.status {
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    color: #777;
+}
+
+
+/* =================================
+   BATTLE ARENA
+================================= */
+
+.battle-arena {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        130px
+        minmax(0, 1fr);
+
+    gap: 25px;
+
+    align-items: center;
+}
+
+
+/* =================================
+   FIGHTER
+================================= */
+
+.fighter {
+    min-width: 0;
+}
+
+
+.fighter-header {
+    margin-bottom: 12px;
+
+    padding: 10px;
+
+    background: #151515;
+
+    border-left: 5px solid #00e5ff;
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+
+.bot .fighter-header {
+    border-left: none;
+
+    border-right: 5px solid #ff3b30;
+
+    text-align: right;
+}
+
+
+.robot-icon {
+    margin-right: 8px;
+}
+
+
+/* =================================
+   CAMERA
+================================= */
+
+.camera-box {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    background: #000;
+
+    border: 4px solid #00e5ff;
+
+    overflow: hidden;
+
+    box-shadow:
+        10px 10px 0 #111;
+}
+
+
+#webcam-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+#webcam-container canvas {
+    display: block;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: cover;
+}
+
+
+.camera-label {
+    position: absolute;
+
+    left: 10px;
+    top: 10px;
+
+    padding: 5px 8px;
+
+    background: #00e5ff;
+
+    color: #000;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* =================================
+   BOT SCREEN
+================================= */
+
+.bot-screen {
+    aspect-ratio: 4 / 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #181818,
+            #080808
+        );
+
+    border: 4px solid #ff3b30;
+
+    box-shadow:
+        -10px 10px 0 #111;
+}
+
+
+.bot-screen div {
+    font-size: 100px;
+
+    animation: robotFloat 2s infinite ease-in-out;
+}
+
+
+.bot-screen span {
+    margin-top: 10px;
+
+    color: #555;
+
+    font-size: 10px;
+}
+
+
+/* =================================
+   MOVE BOX
+================================= */
+
+.move-box {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: #111;
+
+    border: 2px solid #333;
+}
+
+
+.move-box small {
+    color: #666;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+#playerChoice,
+#botChoice {
+    margin: 5px;
+
+    font-size: 55px;
+}
+
+
+#playerPrediction {
+    color: #00e5ff;
+
+    font-size: 12px;
+}
+
+
+#result {
+    margin-top: 8px;
+
+    color: #ffea00;
+
+    font-family: 'Bangers';
+
+    font-size: 35px;
+}
+
+
+/* =================================
+   CENTER
+================================= */
+
+.center {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.vs {
+    font-family: 'Bangers';
+
+    font-size: 65px;
+
+    color: #ff3b30;
+
+    transform: rotate(-8deg);
+
+    text-shadow:
+        4px 4px 0 #ffea00,
+        7px 7px 0 #000;
+}
+
+
+.round {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+#startBtn {
+    width: 110px;
+
+    background: #00e5ff;
+
+    color: #000;
+
+    box-shadow:
+        5px 5px 0 #ffea00;
+}
+
+
+/* =================================
+   SCORE
+================================= */
+
+.score {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 35px;
+}
+
+
+.score-unit {
+    min-width: 140px;
+
+    padding: 10px 25px;
+
+    text-align: center;
+
+    background: #111;
+
+    border: 2px solid #444;
+}
+
+
+.score-unit span {
+    display: block;
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+
+.score-unit strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #ffea00;
+
+    font-family: 'Bangers';
+
+    font-size: 50px;
+}
+
+
+.score-center {
+    font-family: 'Permanent Marker';
+
+    color: #ff3b30;
+}
+
+
+/* =================================
+   MESSAGE
+================================= */
+
+.game-message {
+    min-height: 45px;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #00e5ff;
+
+    font-family: 'Bangers';
+
+    font-size: 32px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   RESET
+================================= */
+
+.reset {
+    display: block;
+
+    margin: 10px auto 0;
+
+    padding: 8px 15px;
+
+    background: transparent;
+
+    border: 1px solid #444;
+
+    color: #777;
+
+    box-shadow: none;
+
+    font-family: 'Orbitron';
+
+    font-size: 10px;
+}
+
+
+.reset:hover {
+    color: white;
+
+    border-color: white;
+
+    box-shadow: none;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    margin-top: 35px;
+
+    text-align: center;
+
+    color: #333;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes robotFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes shake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    50% {
+        transform: translateX(7px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.shake {
+    animation: shake 0.4s;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 92%;
+
+        padding-top: 20px;
+    }
+
+
+    .model-input {
+        flex-direction: column;
+    }
+
+
+    .battle-arena {
+        grid-template-columns: 1fr;
+    }
+
+
+    .center {
+        order: 2;
+
+        margin: 10px 0;
+    }
+
+
+    .player {
+        order: 1;
+    }
+
+
+    .bot {
+        order: 3;
+    }
+
+
+    .vs {
+        font-size: 50px;
+    }
+
+
+    .graffiti-1 {
+        font-size: 90px;
+    }
+
+
+    .graffiti-2 {
+        font-size: 80px;
+    }
+
+
+    .graffiti-3 {
+        display: none;
+    }
+
+
+    .score {
+        gap: 8px;
+    }
+
+
+    .score-unit {
+        min-width: 95px;
+
+        padding: 8px;
+    }
+
+
+    .score-unit strong {
+        font-size: 40px;
+    }
+
+
+    .game-message {
+        font-size: 25px;
+    }
+}
